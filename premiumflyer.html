@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.pixabay.com/photo/2016/07/12/06/21/grid-1511496_960_720.jpg">
+    <title>kyekyeku.tech</title>
+<style>
+    body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-image: url('https://telegra.ph/file/ddf9087dae1e826d8b986.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.form-container {
+    background-color: rgba(15, 1, 1, 0.418);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgb(36, 29, 0);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    margin: auto; /* Center the form horizontally */
+    flex: 1; /* Make sure the form container takes up available space */
+}
+
+footer {
+    background-color: #00000a;
+    padding: 20px;
+    text-align: center;
+    color: #f5f4f3;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
+    color: #f8f7f2;
+}
+
+
+
+
+.whatsapp-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.form-container {
+    background-color: rgba(1, 0, 10, 0.692);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgb(6, 1, 248);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+h2 {
+    font-weight: bold;
+    color: blue;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: yellow;
+}
+input[type="text"],
+input[type="date"],
+input[type="tel"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #0c0101;
+    border-radius: 5px;
+    outline: none;
+}
+p {
+    color: rgb(248, 241, 241);
+}
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: yellow;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+input[type="submit"]:hover {
+    background-color: black;
+    color: yellow;
+}
+.btm {
+margin-bottom: 10px;
+color: #f5f4f3;
+width: 100%; /* Set input width to 100% */
+padding: 10px;
+box-sizing: border-box; /* Include padding and border in width */
+border-radius: 5px;
+border: 2px solid #f1f1ee;
+text-align: center; /* Center text */
+}
+.btm:hover {
+    background-color: blue;
+    color: #f5f4f3;
+}
+
+.form-container img {
+            width: 100%;
+            max-width: 200px;
+            height: 50%;
+            display: block;
+            margin: auto;
+        }
+        .whatsapp-widget {
+    position: fixed;
+    bottom: 60px; /* Increased from 20px to 60px */
+    right: 20px;
+    background: #25D366;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+        .whatsapp-widget img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .whatsapp-widget:hover {
+            transform: scale(1.2);
+        }
+        .agent-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 15px;
+    background-color: #007bff; /* Change to your preferred color */
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    width: fit-content;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.agent-button img {
+    width: 40px; /* Adjust size */
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.agent-button span {
+    white-space: nowrap;
+}
+
+.agent-button:hover {
+    background-color: #0a0a0a;
+    transform: scale(1.05);
+}
+
+</style>
+</head>
+<body>
+<div class="form-container">
+    <h2>KYEKYEKU TECH SOLUTION</h2>
+    <p>Ultra Modern Flyer Design is GHC 7.00</p>
+    <form id="flyerForm" enctype="multipart/form-data">
+        <input type="hidden" name="x-sheetmonkey-insert-worksheet" value="FLYER" />
+        <img src="https://d1csarkz8obe9u.cloudfront.net/embeddesigns/59c8c93c42d4061188496b56aa105014_embed.jpg" alt="flyer image"/>
+        <input type="text" id="Recipient_Name" name="Recipient_Name" placeholder="Your Company Name" required>
+        <input type="tel" id="Phone_Number" name="Phone_Number" placeholder="Your Payment Number" required>
+        <input type="text" id="Price" name="Price" placeholder="How Much You Sell 1GB" required>
+        <input type="text" id="afaPrice" name="afaPrice" placeholder="How Much You charge for AFA REG." required>
+        <input type="text" id="Whatsapp" name="Whatsapp" placeholder="Your Whatsapp Number" required>
+        <input type="submit" value="REQUEST"><br><br>
+        <a href="https://wa.me/+233545454000" class="btm">NO, I WANT FREE</a>
+    </form>
+</div>
+<div class="agent-button" onclick="window.location.href='about.html'">
+    <img src="https://telegra.ph/file/7bc2c08d3b722da63e2b6.jpg" alt="AGENT">
+    <span>ABOUT THE OWNER</span>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+document.getElementById('flyerForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    var phoneNumber = document.getElementById("Phone_Number").value;
+    var amount = 7.2 * 100; // Amount in kobo
+
+    var handler = PaystackPop.setup({
+        key: 'pk_live_fb405d2702a00868ba424f73b9148b7aad07b2b0', // Replace with your public key
+        email: 'safooppong121@gmail.com',
+        amount: amount,
+        currency: 'GHS',
+        ref: 'KYEKYEKU-' + Math.floor((Math.random() * 1000000000) + 1),
+        metadata: {
+            custom_fields: [{
+                display_name: "Phone Number",
+                variable_name: "phone_number",
+                value: phoneNumber
+            }]
+        },
+        callback: function(response) {
+            // Send form data to SheetMonkey
+            var form = event.target;
+            var formData = new FormData(form);
+
+            fetch('https://api.sheetmonkey.io/form/s2tNaVG3kzyiw91cPx6AyC', {
+                method: "POST",
+                body: formData
+            }).then(function(response) {
+                if (response.ok) {
+                    // Show the success alert
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Your data has been saved, Thank you",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
+                    // Redirect to the specified URL after a delay
+                    setTimeout(function() {
+                        window.location.href = "https://wa.me/+233545454000?text=Hi+Bro--+I+Just+Paid+Premium+Flyer+Kindly+*Confirm*";
+                    }, 2000);
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'There was an error with your submission.'
+                    });
+                }
+            }).catch(function(error) {
+                console.error("Error:", error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'There was an error with your submission.'
+                });
+            });
+        },
+        onClose: function() {
+            Swal.fire('Payment Cancelled', 'You closed the payment window.', 'info');
+        }
+    });
+    handler.openIframe();
+});
+
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
+
+menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('open');
+});
+
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+</script>
+
+<div class="whatsapp-widget" onclick="window.location.href='https://wa.me/+233545454000'">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</div>

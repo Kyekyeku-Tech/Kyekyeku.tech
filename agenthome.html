@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kyekyeku.tech solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.pixabay.com/photo/2016/07/12/06/21/grid-1511496_960_720.jpg">
+    <style>
+     body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+            background-size: cover;
+            color: transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        :root {
+  --bg-color: white;
+  --text-color: rgb(7, 7, 7);
+  --btn-bg-color: #fcf8f8; /* Primary blue color */
+  --btn-hover-bg-color: #03ffff; /* Darker blue */
+  --btn-shadow-color: blue;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.5s, color 0.5s;
+  font-family: Arial, sans-serif;
+}
+.modern-theme-btn {
+  padding: 12px 25px;
+  border: 1px solid #0546f7;
+  border-radius: 50px; /* Rounded corners for a sleek look */
+  background-color: var(--btn-bg-color);
+  color: transparent;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; /* Adds space between the icon and text */
+}
+
+.modern-theme-btn .icon {
+  width: 20px;
+  height: 20px;
+}
+
+.modern-theme-btn:hover {
+  background-color: var(--btn-hover-bg-color);
+  box-shadow: 0 8px 25px var(--btn-shadow-color);
+}
+
+.night-theme {
+  background-color: black; /* Full background dark mode */
+  color: white; /* Text color for night mode */
+}
+
+.night-theme .modern-theme-btn {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.night-theme .icon {
+  filter: invert(1); /* Invert colors for night mode */
+}
+
+        .container {
+            background-color: transparent;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            color: rgb(136, 8, 8);
+        }
+
+        #mtn-heading {
+            color: #00acee;
+            font-size: 28px;
+            font-weight: bold;
+            display: inline;
+        }
+
+        .form-text {
+            color: #fff;
+            font-size: 28px;
+            font-weight: bold;
+            display: inline;
+        }
+
+        h3 {
+            margin-top: 15px;
+            color: #ffc107;
+        }
+
+        p, h5 {
+            font-size: 16px;
+            margin: 15px 0;
+        }
+
+        .btn, .btm {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btm {
+            background-color: #007bff;
+        }
+
+        .btn:hover, .btm:hover {
+            background-color: #000;
+            transform: scale(1.05);
+        }
+
+        .testimonials {
+            padding: 50px 20px;
+            margin-top: 40px;
+            background-color: transparent;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .testimonials h3 {
+            margin-bottom: 20px;
+            
+        }
+
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .testimonial-slide {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            
+        }
+
+        .testimonial-slide img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 2px solid #ffc107;
+        }
+
+        .testimonial-slide blockquote {
+            font-size: 1.2em;
+            font-style: italic;
+            margin-bottom: 10px;
+           
+        }
+
+        .testimonial-slide p {
+            font-weight: bold;
+            
+        }
+
+        /* Show the first slide initially */
+        .testimonial-slide:first-child {
+            display: block;
+        }
+
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #570b01;
+            color: rgb(247, 244, 244);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .whatsapp-widget img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .whatsapp-widget:hover {
+            transform: scale(1.2);
+        }
+
+        /* Agent Button */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .agent-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px;
+            border: 1px solid #000;
+            border-radius: 25px;
+            background-color: #f2f2f2;
+            color: #000;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+            margin: 10px; /* Adjust margin for spacing between buttons */
+        }
+        .group-button {
+          display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px;
+            border: 1px solid #0905f3;
+            border-radius: 25px;
+            background-color: #24ec09;
+            color: #000;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+            margin: 10px; 
+        }
+
+        .agent-button:hover, .group-button:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .agent-button img, .group-button img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-slide blockquote {
+                font-size: 1em;
+            }
+        }
+        
+  .container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .title-section {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    
+  }
+  
+  .divider {
+    width: 60px;
+    height: 3px;
+    background-color: #15ff00;
+    margin: 10px auto;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 15px;
+  }
+  
+  .col-lg-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+  }
+  
+  .card-pricing {
+    background-color: rgb(255, 4, 4);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(252, 13, 5, 0.849);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  .col-lg-auto:nth-child(4) .card-pricing,
+  .col-lg-auto:nth-child(5) .card-pricing {
+    background-color: #fc9a06;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #fc9a06;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+  } 
+  .col-lg-auto:nth-child(3) .card-pricing {
+    background-color: #072bfa;
+    color: #f3f2f2;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #0707fa;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+  } 
+  .card-pricing:hover {
+    transform: translateY(-10px);
+  }
+  
+  .header {
+    padding: 20px;
+    color: #f80808;
+    background-color: #fff; /* Default header color */
+  }
+  
+  .header .price-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* Specific styling for MTN and AFA Registration headers */
+  .col-lg-auto:nth-child(4) .header,
+  .col-lg-auto:nth-child(5) .header {
+    color: #f89008;
+    background-color: #000;
+  }
+  .col-lg-auto:nth-child(3) .header {
+    background-color: rgb(255, 0, 0);
+    color: rgb(47, 0, 255);
+  }
+  .price-icon img {
+    width: 100px;
+    margin: 0 auto;
+  }
+  
+  .price-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .body {
+    padding: 20px;
+  }
+  
+  .price-tag {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #f5f1f1;
+    margin-bottom: 10px;
+  }
+  
+  .price-info {
+    font-size: 1em;
+    color: #f5efef;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: rgb(243, 235, 235);
+    border: 1px solid #070707;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: rgb(17, 16, 16);
+    color: #fff;
+  }
+  .col-lg-auto:nth-child(4) .btn,
+  .col-lg-auto:nth-child(5) .btn {
+    color: black;
+    background-color: rgb(255, 174, 0);
+  }
+  .col-lg-auto:nth-child(4) .btn:hover,
+  .col-lg-auto:nth-child(5) .btn:hover {
+    color: rgb(243, 167, 3);
+    background-color: #0c0c01;
+  }
+  .col-lg-auto:nth-child(1) .btn {
+    color: red;
+    background-color: #eee8e8;
+  }
+  .col-lg-auto:nth-child(1) .p {
+    color: rgb(15, 12, 1);
+  }
+  .col-lg-auto:nth-child(1) .btn:hover {
+    color: rgba(241, 239, 245, 0.705);
+    background-color: rgba(24, 24, 185, 0.89);
+  }
+  /* Animations */
+  .wow {
+    visibility: hidden;
+  }
+  
+  .fadeInLeft {
+    animation-name: fadeInLeft;
+  }
+  
+  .fadeInUp {
+    animation-name: fadeInUp;
+  }
+  
+  @keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  /* Adding animation delays for staggered effect */
+  .col-lg-auto:nth-child(1) .wow {
+    animation-delay: 0.1s;
+  }
+  
+  .col-lg-auto:nth-child(2) .wow {
+    animation-delay: 0.3s;
+  }
+  
+  .col-lg-auto:nth-child(3) .wow {
+    animation-delay: 0.5s;
+  }
+  
+  .col-lg-auto:nth-child(4) .wow {
+    animation-delay: 0.7s;
+  }
+  
+  .wow {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    visibility: visible;
+  }
+  .whatsapp-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: transparent;
+    color: rgb(247, 244, 244);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.whatsapp-widget img {
+    width: 35px;
+    height: 35px;
+}
+
+.whatsapp-widget:hover {
+    transform: scale(1.2);
+}
+
+      
+      
+      .btm {
+          display: inline-block;
+          padding: 10px 20px;
+          font-size: 1em;
+          font-weight: bold;
+          color: rgb(248, 243, 243);
+          border: 1px solid #070707;
+          border-radius: 50px;
+          text-decoration: none;
+          transition: background-color 0.3s, color 0.3s;
+      }
+
+      .btm:hover {
+          background-color: red;
+          color: #fff;
+      }
+        </style>
+</head>
+<body>
+    
+    <div class="container">
+            <h2 style="color: #15ff00;">KYEKYEKU-TECH SOLUTION</h2>
+            <li><a href="app.html" class="home"><span class="icon"><i class="fas fa-download"></i></span><span class="text"> Android apk app</span></a></li><br>
+
+            <div>
+                <p style="color: #0206fa;">Switch 👇Mode</p>
+                <button id="theme-toggle" class="modern-theme-btn">
+                    <img src="https://th.bing.com/th/id/R.c0c31958cbffd57076b5368cc035322c?rik=MQrTR6MBNvVCqA&pid=ImgRaw&r=0" alt="Sun" class="icon" id="sun-icon">
+                    <img src="https://th.bing.com/th/id/OIP.aGGFesr5h9HumhhYbvBosAHaHa?rs=1&pid=ImgDetMain" alt="Moon" class="icon" id="moon-icon">
+                </button>
+            </div>
+
+    <div class="page-section" id="services">
+        <div class="container">
+            <div class="text-center">
+                <div class="divider mx-auto"></div>
+            </div>
+
+                <div class="col-12 col-lg-auto py-3 wow fadeInLeft">
+                    <div class="card-pricing">
+                        <div class="header">
+                            <div class="price-icon my-1">
+                                <img width="100px" src="https://i.postimg.cc/WpBdWk8L/telecel.jpg" alt="">
+                            </div>
+                            <div class="price-title">TELECEL</div>
+                        </div>
+                        <div class="body py-3">
+                            <div class="price-tag">
+                                TELECEL DATA BUNDLE
+                            </div>
+                            <div class="price-info">
+                                <p>Choose the plan that is right for you</p>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <a href="vodaagent.html" class="btn btn-outline rounded-pill">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-auto py-3 wow fadeInLeft">
+                    <div class="card-pricing">
+                        <div class="header">
+                            <div class="price-icon my-1">
+                                <img width="100px" src="https://i.postimg.cc/W3yRfxtj/at-removebg.png" alt="">
+                            </div>
+                            <div class="price-title">AT Big Time</div>
+                        </div>
+                        <div class="body py-3">
+                            <div class="price-tag">
+                                AT Big Time Bundles
+                            </div>
+                            <div class="price-info">
+                                <p>Choose the plan that is right for you</p>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <a href="tigoagent.html" class="btn btn-outline rounded-pill">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-auto py-3 wow fadeInUp">
+                    <div class="card-pricing">
+                        <div class="header">
+                            <div class="price-icon my-1">
+                                <img width="100px" src="https://seeklogo.com/images/M/mtn-logo-40644FC8B0-seeklogo.com.png" alt="">
+                            </div>
+                            <div class="price-title">MTN</div>
+                        </div>
+                        <div class="body py-3">
+                            <div class="price-tag">
+                                Offers made for You
+                            </div>
+                            <div class="price-info">
+                                <p>Choose the plan that's right for you</p>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <a href="mtnagent.html" class="btn btn-outline rounded-pill">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-auto py-3 wow fadeInUp">
+                    <div class="card-pricing">
+                        <div class="header">
+                            <div class="price-icon my-1">
+                                <img width="100px" src="https://seeklogo.com/images/M/mtn-logo-40644FC8B0-seeklogo.com.png" alt="">
+                            </div>
+                            <div class="price-title">AFA Registration</div>
+                        </div>
+                        <div class="body py-3">
+                            <div class="price-tag">
+                                AFA Registration
+                            </div>
+                            <div class="price-info">
+                                <p>For Farmers and Association Mtn Users</p>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <a href="https://wa.me/+233545454000" class="btn btn-outline rounded-pill">Register</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="button-container">
+        <div class="agent-button" onclick="window.location.href='premiumflyer.html'">
+            <img src="https://i.postimg.cc/W4PpjDLK/HANSBUK.jpg" alt="AGENT">
+            <span>REQUEST PREMIUM FLYER</span>
+        </div>
+    <div class="agent-button" onclick="window.location.href='flyer.html'">
+        <img src="https://i.postimg.cc/W4PpjDLK/HANSBUK.jpg" alt="COMMUNITY">
+        <span>GENERATE FREE FLYER</span>
+    </div>
+        </div>
+    </div>
+    <section class="testimonials">
+        <h3>Testamonials!!</h3>
+        <div class="testimonial-slider">
+            <div class="testimonial-slide">
+                <img src="https://i.postimg.cc/G2MzG3f6/shadrack.png" alt="Person 1">
+                <blockquote>"The internet bundles from Kyekyeku-Tech are affordable and delivery is lightning fast!"</blockquote>
+                <p>- Shadrack Antwi</p>
+            </div>
+            <div class="testimonial-slide">
+                <img src="https://i.postimg.cc/MH5d1qMD/francisca.jpg" alt="Person 2">
+                <blockquote>"Great value for money! I always get my internet bundle delivered within minutes."</blockquote>
+                <p>- Rebecca Arthur</p>
+            </div>
+            <div class="testimonial-slide">
+                <img src="https://i.postimg.cc/HLzt1sTj/fredereck.jpg" alt="Person 3">
+                <blockquote>"Fast delivery and reliable service. Kyekyeku-Tech never disappoints!"</blockquote>
+                <p>- Frederick Donkor</p>
+            </div>
+            <!-- Additional Testimonials -->
+            <div class="testimonial-slide">
+                <img src="https://i.postimg.cc/jjBSJkKN/safoa.jpg" alt="Person 4">
+                <blockquote>"I am impressed with the quality of service from Kyekyeku-Tech. Always reliable!"</blockquote>
+                <p>- Josephine Sarfo</p>
+            </div>
+            <div class="testimonial-slide">
+                <img src="https://i.postimg.cc/DZqn4vxk/b.jpg" alt="Person 5">
+                <blockquote>"Quick and easy! I highly recommend Kyekyeku-Tech for all your internet needs."</blockquote>
+                <p>- Bismark Acquah</p>
+            </div>
+            <div class="testimonial-slide">
+                <img src="https://i.postimg.cc/BQhsKwB6/FB.jpg" alt="Person 6">
+                <blockquote>"The customer service is top-notch, and the delivery is always on time!"</blockquote>
+                <p>- Angela Baah</p>
+            </div>
+            <div class="testimonial-slide">
+                <img src="https://i.postimg.cc/fLhhs4DH/IMG.jpg" alt="Person 7">
+                <blockquote>"Affordable and fast! Kyekyeku-Tech is my go-to for internet bundles."</blockquote>
+                <p>- Kweku James</p>
+            </div>
+        </div>
+    </section>
+    
+    <div class="agent-button" onclick="window.location.href='about.html'">
+        <img src="https://telegra.ph/file/7bc2c08d3b722da63e2b6.jpg" alt="AGENT">
+        <span>ABOUT THE OWNER</span>
+    </div>
+
+    <div class="whatsapp-widget" onclick="window.location.href='https://wa.me/+233545454000'">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </div>
+
+    <script>
+         function toggleMenu() {
+            var menu = document.getElementById('nav-menu');
+            menu.classList.toggle('mobile-menu');
+        }
+        // JavaScript for the automatic sliding of testimonials
+        const slides = document.querySelectorAll('.testimonial-slide');
+        let currentSlide = 0;
+
+        function showNextSlide() {
+            slides[currentSlide].style.display = 'none';
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].style.display = 'block';
+        }
+
+        setInterval(showNextSlide, 5000); // Change slide every 5 seconds
+        const toggleButton = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('night-theme');
+
+            if (body.classList.contains('night-theme')) {
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            } else {
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            }
+
+            // Save preference in localStorage
+            const theme = body.classList.contains('night-theme') ? 'night' : 'day';
+            localStorage.setItem('theme', theme);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('theme') === 'night') {
+                body.classList.add('night-theme');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            }
+        });
+
+    </script>
+</body>
+</html>

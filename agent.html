@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>luxedigital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="CSS/play.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.pixabay.com/photo/2016/07/12/06/21/grid-1511496_960_720.jpg">
+
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://wallpaperaccess.com/full/1567679.jpg');
+            background-size: cover;
+        }
+
+        .login-form {
+            position: relative;
+            width: 370px;
+            height: auto;
+            background: #1b1b1bab;
+            padding: 40px 35px 60px;
+            box-sizing: border-box;
+            border: 1px solid rgb(1, 5, 0);
+            border-radius: 5px;
+            box-shadow: inset 0 0 10px #f39201;
+        }
+
+        .text {
+            font-size: 30px;
+            color: #c7c7c7;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        form {
+            margin-top: 40px;
+        }
+
+        form .field {
+            margin-top: 20px;
+            display: flex;
+        }
+
+        .field .fas {
+            height: 50px;
+            width: 60px;
+            color: #868686;
+            font-size: 20px;
+            line-height: 50px;
+            border: 1px solid #444;
+            border-right: none;
+            border-radius: 5px 0 0 5px;
+            background: linear-gradient(#333, #222);
+        }
+
+        .field input,
+        form button {
+            height: 50px;
+            width: 100%;
+            outline: none;
+            font-size: 19px;
+            color: #868686;
+            padding: 0 15px;
+            border-radius: 0 5px 5px 0;
+            border: 1px solid #444;
+            caret-color: #f39201;
+            background: linear-gradient(#333, #222);
+        }
+
+        input:focus {
+            color: #9ca19c;
+            box-shadow: 0 0 5px #f39201, inset 0 0 5px rgba(0, 255, 0, 0.1);
+            background: linear-gradient(#333933, #222922);
+            animation: glow 0.8s ease-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                border-color: #f39201;
+                box-shadow: 0 0 5px rgba(0, 255, 0, 0.2), inset 0 0 5px rgba(0, 0, 0, 0.1);
+            }
+
+            100% {
+                border-color: #f39201;
+                box-shadow: 0 0 20px rgba(8, 8, 8, 0.6),
+                    inset 0 0 10px rgba(0, 255, 0, 0.4);
+            }
+        }
+
+        button {
+            margin-top: 30px;
+            border-radius: 5px !important;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            color: #339933;
+            border: 1px solid #339933;
+            box-shadow: 0 0 5px rgba(0, 255, 0, 0.3), 0 0 10px rgba(0, 255, 0, 0.2),
+                0 0 15px rgba(0, 255, 0, 0.1), 0 2px 0 black;
+        }
+
+        .link {
+            margin-top: 25px;
+            color: #868686;
+        }
+
+        .link a {
+            color: #339933;
+            text-decoration: none;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="login-form">
+        <div class="text" style="color: #f39201;">
+            BECOME AGENT
+        </div>
+        <p style="color: #f39201;">GHS 30.0</p>
+        <form id="signupForm" enctype="multipart/form-data" netlify>
+            <input type="hidden" name="x-sheetmonkey-insert-worksheet" value="NEW" />
+            <div class="field">
+                <div class="fas fa-user"></div>
+                <input type="text" id="name" name="NAME" placeholder="USERNAME" required>
+            </div>
+            <div class="field">
+                <div class="fas fa-envelope"></div>
+                <input type="email" id="email" name="Email" placeholder="Email" required>
+            </div>
+            <div class="field">
+                <div class="fas fa-phone"></div>
+                <input type="number" id="phoneNumber" name="PHONE_NUMBER" placeholder="Phone Number" required>
+            </div>
+            <button type="submit">SIGNUP</button>
+            <div class="link">
+                Are you an Agent?
+                <a href="mtnagent.html">Buy Now</a><br>
+                <p style="color: red;">Please note you'll be charge for Agent portal</p>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script>
+      document.getElementById('signupForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phoneNumber = document.getElementById("phoneNumber").value.trim();
+    var amount = 30.5 * 100; // Amount in kobo
+
+    // Ensure phone number is in the correct format
+    if (phoneNumber.startsWith("0")) {
+        phoneNumber = "233" + phoneNumber.substring(1);
+    }
+
+    var handler = PaystackPop.setup({
+        key: 'pk_live_fb405d2702a00868ba424f73b9148b7aad07b2b0', // Replace with your Paystack public key
+        email: email,
+        amount: amount,
+        currency: 'GHS',
+        ref: 'KYEKYEKU-' + Math.floor((Math.random() * 1000000000) + 1),
+        metadata: {
+            custom_fields: [{
+                display_name: "Phone Number",
+                variable_name: "phone_number",
+                value: phoneNumber
+            }]
+        },
+        callback: function (response) {
+            // Save form data
+            var form = event.target;
+            var formData = new FormData(form);
+
+            fetch('https://api.sheetmonkey.io/form/s2tNaVG3kzyiw91cPx6AyC', {
+                method: "POST",
+                body: formData
+            }).then(function (response) {
+                if (response.ok) {
+                    // Send SMS Notifications
+                    sendAdminSms(name, phoneNumber, email);
+                    sendUserSms(name, phoneNumber);
+
+                    // Show success message
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Your Agent ID will be sent to you. Thank you!",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
+                    // Redirect to WhatsApp after delay
+                    setTimeout(function () {
+                        window.location.href = "https://wa.me/+233545454000?text=Hi+KYEKYEKU+TECH+🛡+I+Registered+As+Agent+on+Your+System_";
+                    }, 2000);
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'There was an error with your submission.'
+                    });
+                }
+            }).catch(function (error) {
+                console.error("Error:", error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'There was an error with your submission.'
+                });
+            });
+        },
+        onClose: function () {
+            Swal.fire('Payment Cancelled', 'You closed the payment window.', 'info');
+        }
+    });
+
+    handler.openIframe();
+});
+
+// Function to send SMS to Admin
+function sendAdminSms(name, phoneNumber, email) {
+    const adminSmsUrl = `https://devp-sms03726-api.hubtel.com/v1/messages/send?clientid=janhcpit&clientsecret=mzrmyenb&from=KyekyekuTek&to=+233545454000&content=Hi Boss, ${name} has registered as an Agent on MTN. Phone Number: ${phoneNumber}, Email: ${email}`;
+
+    fetch(adminSmsUrl, { method: 'GET' })
+        .then(response => response.text())
+        .then(data => console.log("Admin SMS Sent:", data))
+        .catch(error => console.error('Error sending admin SMS:', error));
+}
+
+// Function to send SMS to User
+function sendUserSms(name, phoneNumber) {
+    const userSmsUrl = `https://apps.mnotify.net/smsapi?key=zwNY4rjo1XWnMXn8Om7Q8gk1U&to=${phoneNumber}&msg=Your Agent ID is ${name}. Use it on kyekyeku.tech. Thank you!&sender_id=KYE-TECH`;
+
+    fetch(userSmsUrl, { method: 'GET' })
+        .then(response => response.text())
+        .then(data => {
+            console.log("User SMS Sent:", data);
+            if (!data.includes("1000")) { // 1000 = Success code in mNotify
+                throw new Error("SMS sending failed: " + data);
+            }
+        })
+        .catch(error => console.error('Error sending user SMS:', error));
+}
+
+    </script>
+</body>
+</html>

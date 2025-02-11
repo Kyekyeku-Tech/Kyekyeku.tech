@@ -19,7 +19,7 @@
             padding: 10px 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 400px;
+            width: 100%;
             text-align: center;
             margin-top: 50px; /* Added margin to account for marquee */
         }
@@ -116,22 +116,59 @@ body {
 .night-theme .icon {
   filter: invert(1); /* Invert colors for night mode */
 }
-#kyekyeku-tech_logo {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 150px; /* Adjust size as needed */
-    height: auto;
-}                                      
+header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        
+        text-align: center;
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 8px rgb(245, 2, 2);
+        z-index: 1000;
+    }
+
+    /* Header Text */
+    header h2 {
+        margin: 0;
+        font-size: 20px;
+        flex-grow: 1;
+    }
+
+    /* Logo Styling */
+    #kyekyeku-tech_logo {
+        width: 120px;
+        height: auto;
+        margin-left: 10px;
+    }
+
+    
+
+    /* Icons Inside Button */
+    .modern-theme-btn img {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Space for content */
+    .content {
+        margin-top: 80px; /* Prevents overlap due to fixed header */
+    }                                     
             
  </style>
- <p style="color: #0206fa;">Switch 👇Mode</p>
+ <header>
+ <p style="color: #0206fa;"> Switch👉Mode</p>
  <button id="theme-toggle" class="modern-theme-btn">
      <img src="https://th.bing.com/th/id/R.c0c31958cbffd57076b5368cc035322c?rik=MQrTR6MBNvVCqA&pid=ImgRaw&r=0" alt="Sun" class="icon" id="sun-icon">
      <img src="https://th.bing.com/th/id/OIP.aGGFesr5h9HumhhYbvBosAHaHa?rs=1&pid=ImgDetMain" alt="Moon" class="icon" id="moon-icon">
  </button>
- <h2>KYEKYEKU TECH SOLUTION</h2>
+ <h2>KYE-TECH SOLUTION</h2>
  <img src="my-logo.png" id="kyekyeku-tech_logo" alt="kyekyeku-tech_logo">
+</header>
+
  <div class="container">
         <marquee>
             <h4>Welcome to Kyekyeku-Tech English Dictionary Page!</h4>

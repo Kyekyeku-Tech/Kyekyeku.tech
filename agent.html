@@ -140,7 +140,7 @@
         </div>
         <p style="color: #f39201;">GHS 30.0</p>
         <form id="signupForm" enctype="multipart/form-data" netlify>
-            <input type="hidden" name="x-sheetmonkey-insert-worksheet" value="NEW" />
+            <input type="hidden" name="x-sheetmonkey-insert-worksheet" value="NEW AGENT" />
             <div class="field">
                 <div class="fas fa-user"></div>
                 <input type="text" id="name" name="NAME" placeholder="USERNAME" required>
@@ -195,7 +195,7 @@
             var form = event.target;
             var formData = new FormData(form);
 
-            fetch('https://api.sheetmonkey.io/form/s2tNaVG3kzyiw91cPx6AyC', {
+            fetch('https://api.sheetmonkey.io/form/gVtvizyoPvnMrcLim66aDc', {
                 method: "POST",
                 body: formData
             }).then(function (response) {

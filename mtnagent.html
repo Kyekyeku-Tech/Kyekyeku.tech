@@ -8,88 +8,68 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.pixabay.com/photo/2016/07/12/06/21/grid-1511496_960_720.jpg">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 5px;
+            padding: 0px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: auto;
-            margin: 60px;
-            background-color: #00050a;
-            color: rgb(243, 237, 237);
         }
-
-        #paymentForm {
-            background: #080700;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgb(255, 209, 3);
-            max-width: 400px;
-            width: 100%;
+       .dashboard, #paymentForm {
+            background: #0a0000;
             padding: 20px;
+            border-radius: 10px;
+            box-shadow: 4px 4px rgb(28, 3, 250);
             text-align: center;
-            color: #ffc107;
+            width: 80%;
+            max-width: 400px;
+            margin-bottom: 20px;
         }
-
-        h2#mtn-heading, h2.form-text {
-            display: inline;
+        .dashboard h4, .payment-form h2 {
+            margin-bottom: 10px;
+            color: #ff05b4;
         }
-
-        h2#mtn-heading {
-            color: rgb(248, 247, 243);
-            font-size: 24px;
+        .totals {
+            font-size: 18px;
+            margin: 8px 0;
+            color: #0400ff;
+        }
+        .highlight {
             font-weight: bold;
+            color: #ff470f;
         }
-
-        h2.form-text {
-            color: rgb(6, 2, 250);
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        h3 {
-            color: #fcc308;
-            margin-top: 10px;
-        }
-
-        label {
+        #paymentForm label {
             display: block;
-            margin: 10px 0 10px;
-            color: #fcc308;
-            text-align: left;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: rgb(255, 115, 0);
         }
-
-        input[type="tel"], input[type="text"], select {
-            width: calc(100% - 20px);
+        #paymentForm input, #paymentForm select {
+            width: 80%;
             padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            border: 1px solid #fa0101;
             border-radius: 5px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
         }
-
-        input[type="submit"] {
-            background-color: #fcc308;
-            color: black;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+        #paymentForm input[type="submit"] {
+            background: #007bff;
+            color: white;
+            font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            border: none;
+            transition: 0.3s;
         }
-
-        input[type="submit"]:hover {
-            background-color: #00050a;
-            color: #fcc308;
+        #payment-form input[type="submit"]:hover {
+            background: #0056b3;
         }
         .logo {
+            width: 150px;
             position: absolute;
-            top: 10px;
-            right: 230px;
-            width: 120px;
-            height: auto;
+            top: 50px;
+            left: 20%;
+            transform: translateX(-50%);
         }
-
     </style>
 </head>
 
@@ -97,10 +77,14 @@
     <a href="index.html">
         <img src="my-logo.png" alt="Emba Logo" class="logo">
     </a>
+    <div class="dashboard">
+        <h4>Current Submission Dashboard</h4>
+        <p class="totals">Total Bundle: <span id="totalbundle" class="highlight">0GB</span></p>
+        <p class="totals">Total Amount: GHS <span id="totalAmount" class="highlight">0.00</span></p>
+        <p class="totals">Last Transaction: <span id="phonenumber" class="highlight">-</span></p>
+    </div>
     <form id="paymentForm">
-        <h2 id="mtn-heading">KYEKYEKU.TECH</h2>
-        <h2 class="form-text">SOLUTION</h2>
-        <h3>WELCOME TO MTN AGENT PORTAL</h3>
+        <h3 style="color: rgb(255, 115, 0);">Yellow Agent Portal</h3>
         
         <label for="agentId">Agent Username:</label>
         <input type="text" id="agentId" required placeholder="e.g., OSARFO"><br>
@@ -115,47 +99,36 @@
             <option value="2">2GB - GHS10.00</option>
             <option value="3">5GB - GHS15.00</option>
             <option value="4">10GB - GHS20.00</option>
-            <option value="5">10GB - GHS25.00</option>
-            <option value="6">10GB - GHS29.00</option>
-            <option value="8">10GB - GHS39.50</option>
-            <option value="10">10GB - GHS48.00</option>
-            <option value="12">10GB - GHS59.00</option>
-            <option value="15">10GB - GHS72.00</option>
-            <option value="20">10GB - GHS93.00</option>
-            <option value="25">10GB - GHS117.00</option>
-            <option value="30">10GB - GHS132.00</option>
-            <option value="40">10GB - GHS182.00</option>
-            <option value="50">10GB - GHS199.00</option>
-            <option value="100">100GB - GHS358.50</option>
         </select><br>
         
         <input type="submit" value="Buy Here">
+    </form>
 
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="https://js.paystack.co/v1/inline.js"></script>
-        <script>
-            const prices = {
-                "0": 0,
-                "1": 550, 
-                "2": 1050,
-                "3": 1550,
-                "4": 2050,
-                "5": 2550,
-                "6": 3040,
-                "8": 4000,
-                "10": 4850,
-                "12": 6000,
-                "15": 7250,
-                "20": 9350,
-                "25": 11750,
-                "30": 13250,
-                "40": 18250,
-                "50": 19950,
-                "100": 36000
-            };
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script>
+       const prices = {
+    "0": 0,
+    "1": 550, 
+    "2": 1050,
+    "3": 1550,
+    "4": 2050,
+    "5": 2550,
+    "6": 3040,
+    "8": 4000,
+    "10": 4850,
+    "12": 6000,
+    "15": 7250,
+    "20": 9350,
+    "25": 11750,
+    "30": 13250,
+    "40": 18250,
+    "50": 19950,
+    "100": 36000
+};
 
-            const agents = {
-        "KSARFO": { email: "safooppong121@gmail.com", phone: "233545454000" },
+const agents = {
+    "KSARFO": { email: "safooppong121@gmail.com", phone: "233545454000" },
         "CLIFTON14": { email: "cliftinaeva@gmail.com", phone: "233544469820" },
         "EWUSI WISDOM": { email: "ewusiw125@gmail.com", phone: "233558575831" },
         "NANA YAW": { email: "vhimbowoy98@gmail.com", phone: "233558385107" },
@@ -192,85 +165,94 @@
         "JUSTICESARKO": { email: "amgposty915@gmail.com", phone: "233207158514"},
         "BERTA1": { email: "bertareigns@gmail.com", phone: "233543631870" },
         "ASAREEMMANUEL": { email: "asarerichway200@gmail.com", phone: "233546424321" }
-            };
+};
 
-            document.getElementById("paymentForm").addEventListener("submit", function(event) {
-                event.preventDefault();
+// Form submission event
 
-                const phoneNumber = document.getElementById("phoneNumber").value;
-                const agentId = document.getElementById("agentId").value.toUpperCase();
-                const selectedBundle = document.getElementById("bundle").value;
-                const amount = prices[selectedBundle];
+document.getElementById("paymentForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-                if (!(agentId in agents)) {
-                    Swal.fire('Error', 'Invalid or unregistered Agent ID.', 'error');
-                    return;
-                }
+    const phoneNumber = document.getElementById("phoneNumber").value;
+    const agentId = document.getElementById("agentId").value.toUpperCase();
+    const selectedBundle = document.getElementById("bundle").value;
+    const amount = prices[selectedBundle];
 
-                const agentEmail = agents[agentId].email;
-                const agentPhone = agents[agentId].phone;
+    if (!(agentId in agents)) {
+        Swal.fire('Error', 'Invalid or unregistered Agent ID.', 'error');
+        return;
+    }
 
-                const handler = PaystackPop.setup({
-                    key: 'pk_live_fb405d2702a00868ba424f73b9148b7aad07b2b0',
-                    email: agentEmail,
-                    amount: amount,
-                    currency: 'GHS',
-                    ref: 'KYEKYEKU-' + Math.floor((Math.random() * 1000000000) + 1),
-                    metadata: {
-                        custom_fields: [{
-                            display_name: "Phone Number",
-                            variable_name: "phone_number",
-                            value: phoneNumber
-                        }]
-                    },
-                    callback: function(response) {
-                        Swal.fire('Payment Successful!', 'Transaction Reference: ' + response.reference, 'success');
-                        sendSMS(agentPhone, selectedBundle);
-                    },
-                    onClose: function() {
-                        Swal.fire('Payment Cancelled', 'You closed the payment window.', 'info');
-                    }
-                });
+    const agentEmail = agents[agentId].email;
+    const agentPhone = agents[agentId].phone;
 
-                handler.openIframe();
-            });
+    const handler = PaystackPop.setup({
+        key: 'pk_live_fb405d2702a00868ba424f73b9148b7aad07b2b0',
+        email: agentEmail,
+        amount: amount,
+        currency: 'GHS',
+        ref: 'KYEKYEKU-' + Math.floor((Math.random() * 1000000000) + 1),
+        metadata: {
+            custom_fields: [{
+                display_name: "Phone Number",
+                variable_name: "phone_number",
+                value: phoneNumber
+            }]
+        },
+        callback: function(response) {
+            Swal.fire('Payment Successful!', 'Transaction Reference: ' + response.reference, 'success');
+            sendSMS(phoneNumber, selectedBundle, agentPhone);
+            updateDashboard(selectedBundle + "GB", "GHS " + (amount / 100).toFixed(2), phoneNumber);
+        },
+        onClose: function() {
+            Swal.fire('Payment Cancelled', 'You closed the payment window.', 'info');
+        }
+    });
 
-            function sendSMS(agentPhone, selectedBundle) {
-                const packageNames = { 
-                    "1": "1GB",
-                    "2": "2GB",
-                    "3": "3GB",
-                    "4": "4GB",
-                    "5": "5GB",
-                    "6": "6GB",
-                    "8": "8GB",
-                    "10": "10GB",
-                    "12": "12GB",
-                    "15": "15GB",
-                    "20": "20GB",
-                    "25": "25GB",
-                    "30": "30GB",
-                    "40": "40GB",
-                    "50": "50GB" 
-                };
-                const package = packageNames[selectedBundle] || "Unknown Package";
-                const senderID = "KYE-TECH";
-                const apiKey = "zwNY4rjo1XWnMXn8Om7Q8gk1U";
-                const adminPhone = "233545454000";
+    handler.openIframe();
+});
 
-                const messages = {
-                    agent: `Hello, you have successfully purchased ${package} data bundle. Thank you for choosing Kyekyeku.Tech.`,
-                    admin: `New bundle purchase alert! ${agentPhone} just bought ${package}. Kindly confirm.`
-                };
+function updateDashboard(bundle, amount, phone) {
+    localStorage.setItem("lastBundle", bundle);
+    localStorage.setItem("lastAmount", amount);
+    localStorage.setItem("lastPhone", phone);
 
-                [agentPhone, adminPhone].forEach((phone, index) => {
-                    fetch(`https://apps.mnotify.net/smsapi?key=${apiKey}&to=${phone}&msg=${encodeURIComponent(Object.values(messages)[index])}&sender_id=${senderID}`)
-                        .then(response => response.json())
-                        .then(data => console.log("SMS Response:", data))
-                        .catch(error => console.error("Error sending SMS:", error));
-                });
-            }
-        </script>
-    </form>
+    document.getElementById("totalbundle").innerText = bundle;
+    document.getElementById("totalAmount").innerText = amount;
+    document.getElementById("phonenumber").innerText = phone;
+}
+
+function sendSMS(customerPhone, selectedBundle, agentPhone) {
+    const packageNames = {
+        "1": "1GB", "2": "2GB", "3": "3GB", "4": "4GB", "5": "5GB",
+        "6": "6GB", "8": "8GB", "10": "10GB", "12": "12GB", "15": "15GB",
+        "20": "20GB", "25": "25GB", "30": "30GB", "40": "40GB", "50": "50GB", "100": "100GB"
+    };
+
+    const package = packageNames[selectedBundle] || "Unknown Package";
+    const senderID = "KYE-TECH";
+    const apiKey = "zwNY4rjo1XWnMXn8Om7Q8gk1U";
+    const adminPhone = "233545454000";
+
+    const messages = [
+        { phone: customerPhone, msg: `Hello, you have successfully purchased ${package} data bundle. Thank you for choosing Kyekyeku.Tech.` },
+        { phone: agentPhone, msg: `Hello Agent, a ${package} bundle was purchased for ${customerPhone}. Thank you for choosing Kyekyeku.Tech.` },
+        { phone: adminPhone, msg: `New Bundle purchase alert! ${package} bundle just bought on ${customerPhone}. Kindly confirm.` }
+    ];
+
+    messages.forEach(({ phone, msg }) => {
+        fetch(`https://apps.mnotify.net/smsapi?key=${apiKey}&to=${phone}&msg=${encodeURIComponent(msg)}&sender_id=${senderID}`)
+            .then(response => response.json())
+            .then(data => console.log(`SMS sent to ${phone}:`, data))
+            .catch(error => console.error(`Error sending SMS to ${phone}:`, error));
+    });
+}
+
+// Load last transaction details on page load
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("totalbundle").innerText = localStorage.getItem("lastBundle") || "0GB";
+    document.getElementById("totalAmount").innerText = localStorage.getItem("lastAmount") || "GHS 0.00";
+    document.getElementById("phonenumber").innerText = localStorage.getItem("lastPhone") || "-";
+});
+</script>
 </body>
 </html>

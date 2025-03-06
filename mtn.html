@@ -1,105 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kyekyeku-Tech</title>
     <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.pixabay.com/photo/2016/07/12/06/21/grid-1511496_960_720.jpg">
+    <script src="https://js.paystack.co/v1/inline.js"></script>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
             margin: 0;
-            background-color: #070500;
-            color: black;
-        }
-
-        #paymentForm {
-            background: #080700fd;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgb(255, 209, 3);
-            max-width: 400px;
-            width: 100%;
-            padding: 20px;
-            text-align: center;
-        }
-
-        h2#mtn-heading, h2.form-text {
-            display: inline;
-        }
-
-        h2#mtn-heading {
-            color: rgb(248, 247, 243);
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        h2.form-text {
-            color: rgb(6, 2, 250);
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        h3 {
-            color: #fcc308;
-            margin-top: 10px;
-        }
-
-        label {
-            display: block;
-            margin: 15px 0 5px;
-            color: #fcc308;
-            text-align: left;
-        }
-
-        input[type="tel"], input[type="text"], select {
-            width: calc(100% - 20px);
             padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+       .dashboard, .payment-form {
+            background: #0c0c0c;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 4px 4px rgb(28, 3, 250);
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+        .dashboard h4, .payment-form h2 {
+            margin-bottom: 10px;
+            color: #ff05b4;
+        }
+        .totals {
+            font-size: 18px;
+            margin: 8px 0;
+            color: #0400ff;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #ff470f;
+        }
+        .payment-form label {
             display: block;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: rgb(255, 115, 0);
         }
-
-        input[type="submit"] {
-            background-color: #fcc308;
-            color: rgb(10, 10, 0);
-            border: none;
-            padding: 10px 20px;
+        .payment-form input, .payment-form select {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #fa0101;
             border-radius: 5px;
+        }
+        .payment-form input[type="submit"] {
+            background: #007bff;
+            color: white;
+            font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            border: none;
+            transition: 0.3s;
         }
-
-        input[type="submit"]:hover {
-            background-color: #070500;
-            color: #fcc308;
+        .payment-form input[type="submit"]:hover {
+            background: #0056b3;
         }
-        
+        .logo {
+            width: 150px;
+            position: absolute;
+            top: 50px;
+            left: 20%;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
-
 <body>
+    <a href="about.html">
+        <img src="my-logo.png" alt="Emba Logo" class="logo">
+    </a>
+    <div class="dashboard">
+        <h4>Current Submission Dashboard</h4>
+        <p class="totals">Total Bundle: <span id="totalbundle" class="highlight">0GB</span></p>
+        <p class="totals">Total Amount: GHS <span id="totalAmount" class="highlight">0.00</span></p>
+        <p class="totals">Last Transaction: <span id="phonenumber" class="highlight">-</span></p>
+    </div>
 
-    <form id="paymentForm">
-        <h2 id="mtn-heading">KYEKYEKU.TECH</h2>
-        <h2 class="form-text">SOLUTION</h2>
-        <h3>WELCOME TO MTN PORTAL</h3>
-
+    <form id="paymentForm" class="payment-form">
+        <h2 style="color: rgb(255, 115, 0);">Yellow package</h2>
         <label for="email">Email Address:</label>
-        <input type="text" id="email" name="email" required placeholder="e.g., safo@example.com"><br>
+        <input type="email" id="email" required placeholder="e.g., user@example.com">
 
         <label for="phoneNumber">Customer Number:</label>
-        <input type="tel" id="phoneNumber" name="PHONE NUMBER" required placeholder="e.g., 0234567890"><br>
+        <input type="tel" id="phoneNumber" required placeholder="e.g., 0234567890">
 
         <label for="bundle">Select package:</label>
-        <select id="bundle" name="BUNDLE" onchange="updateAmount()">
+        <select id="bundle" onchange="updateAmount()">
             <option value="0">SELECT HERE</option>
             <option value="1">1GB - GHS6.0</option>
             <option value="2">2GB - GHS12.0</option>
@@ -116,17 +109,15 @@
             <option value="30">30GB - GHS135.0</option>
             <option value="40">40GB - GHS190.0</option>
             <option value="50">50GB - GHS203.0</option>
-        </select><br>
+        </select>
 
-        <input type="hidden" id="amount" name="amount">
+        <input type="hidden" id="amount">
         <input type="submit" value="Buy Here">
     </form>
 
-    <script src="https://js.paystack.co/v1/inline.js"></script>
-
     <script>
         var prices = {
-           "0": 0,
+            "0": 0,
            "1": 6.5,
            "2": 12.5,
            "3": 18.5,
@@ -141,21 +132,27 @@
            "25": 126.5,
            "30": 135.5,
            "40": 190.5,
-           "50": 204.5
+           "50": 204.5 
         };
 
         function updateAmount() {
-            var bundleSelect = document.getElementById("bundle");
-            var amountInput = document.getElementById("amount");
-            var selectedValue = bundleSelect.value;
-
-            if (selectedValue in prices) {
-                amountInput.value = "GHS " + prices[selectedValue].toFixed(2);
-            }
+            var selectedValue = document.getElementById("bundle").value;
+            document.getElementById("amount").value = "GHS " + prices[selectedValue];
         }
 
+        function updateDashboard(bundle, amount, phone) {
+            localStorage.setItem("lastBundle", bundle);
+            localStorage.setItem("lastAmount", amount);
+            localStorage.setItem("lastPhone", phone);
+
+            document.getElementById("totalbundle").innerText = bundle;
+            document.getElementById("totalAmount").innerText = amount;
+            document.getElementById("phonenumber").innerText = phone;
+        }
+        
+
         function sendSMS(phoneNumber, selectedBundle) {
-            const packageNames = { 
+            const packageNames = {
                 "1": "1GB",
                 "2": "2GB",
                 "3": "3GB",
@@ -171,7 +168,7 @@
                 "30": "30GB",
                 "40": "40GB",
                 "50": "50GB"
-        };
+            };
             const package = packageNames[selectedBundle] || "Unknown Package";
             const senderID = "KYE-TECH";
             const apiKey = "zwNY4rjo1XWnMXn8Om7Q8gk1U";
@@ -192,27 +189,19 @@
 
         document.getElementById("paymentForm").addEventListener("submit", function(event) {
             event.preventDefault();
-
             var phoneNumber = document.getElementById("phoneNumber").value;
             var email = document.getElementById("email").value;
             var selectedBundle = document.getElementById("bundle").value;
-            var amount = prices[selectedBundle] * 100; // Convert to pesewas
+            var amount = prices[selectedBundle] * 100;
 
             var handler = PaystackPop.setup({
-                key: 'pk_live_fb405d2702a00868ba424f73b9148b7aad07b2b0', // Your Paystack public key
+                key: 'pk_live_fb405d2702a00868ba424f73b9148b7aad07b2b0',
                 email: email,
                 amount: amount,
                 currency: 'GHS',
-                ref: 'KYEKYEKU-' + Math.floor((Math.random() * 1000000000) + 1),
-                metadata: {
-                    custom_fields: [{
-                        display_name: "Phone Number",
-                        variable_name: "phone_number",
-                        value: phoneNumber
-                    }]
-                },
                 callback: function(response) {
                     alert('Payment successful! Transaction reference: ' + response.reference);
+                    updateDashboard(selectedBundle + "GB", "GHS " + prices[selectedBundle], phoneNumber);
                     sendSMS(phoneNumber, selectedBundle);
                 },
                 onClose: function() {
@@ -222,7 +211,12 @@
 
             handler.openIframe();
         });
+        // Load last transaction details on page load
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("totalbundle").innerText = localStorage.getItem("lastBundle") || "0GB";
+    document.getElementById("totalAmount").innerText = localStorage.getItem("lastAmount") || "GHS 0.00";
+    document.getElementById("phonenumber").innerText = localStorage.getItem("lastPhone") || "-";
+});
     </script>
-
 </body>
 </html>

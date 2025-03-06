@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kyekyeku tech</title>
+    <title>Kyekyeku Tech</title>
     <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.pixabay.com/photo/2016/07/12/06/21/grid-1511496_960_720.jpg">
     <style>
         body {
@@ -13,14 +13,13 @@
             justify-content: center;
             align-items: center;
             height: auto;
-            margin: 5px;
-            background-image: url('https://wallpaperaccess.com/full/1567679.jpg');
-            background-size: cover;
+            margin: 60px;
+            background-color: #00050a;
             color: rgb(243, 237, 237);
         }
 
         #paymentForm {
-            background: #080700a4;
+            background: #080700;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgb(255, 209, 3);
             max-width: 400px;
@@ -30,8 +29,7 @@
             color: #ffc107;
         }
 
-        h2#mtn-heading,
-        h2.form-text {
+        h2#mtn-heading, h2.form-text {
             display: inline;
         }
 
@@ -52,7 +50,6 @@
             margin-top: 10px;
         }
 
-
         label {
             display: block;
             margin: 10px 0 10px;
@@ -60,9 +57,7 @@
             text-align: left;
         }
 
-        input[type="tel"],
-        input[type="text"],
-        select {
+        input[type="tel"], input[type="text"], select {
             width: calc(100% - 20px);
             padding: 10px;
             margin: 10px 0;
@@ -87,88 +82,79 @@
             background-color: #00050a;
             color: #fcc308;
         }
-
-        .fa-handshake {
-            color: #ffc107;
-            margin: 10px 0;
+        .logo {
+            position: absolute;
+            top: 10px;
+            right: 230px;
+            width: 120px;
+            height: auto;
         }
-        #paystack-logo {
-    width: 200px; /* Adjust width */
-    height: auto; /* Maintain aspect ratio */
-    display: flex; /* Center the image */
-    margin: 10px auto; /* Add spacing */
-    filter: drop-shadow(2px 2px 5px rgba(255, 209, 3, 0.8)); /* Add a glow effect */
-    transition: transform 0.3s ease-in-out;
-}
-
-#paystack-logo:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
-}
-
 
     </style>
 </head>
 
 <body>
+    <a href="index.html">
+        <img src="my-logo.png" alt="Emba Logo" class="logo">
+    </a>
     <form id="paymentForm">
-        <input type="hidden" name="x-sheetmonkey-insert-worksheet" value="MTN NEW" />
         <h2 id="mtn-heading">KYEKYEKU.TECH</h2>
         <h2 class="form-text">SOLUTION</h2>
         <h3>WELCOME TO MTN AGENT PORTAL</h3>
+        
         <label for="agentId">Agent Username:</label>
-        <input type="text" id="agentId" name="AGENT ID" required placeholder="e.g., OSARFO"><br>
+        <input type="text" id="agentId" required placeholder="e.g., OSARFO"><br>
 
         <label for="phoneNumber">Customer Number:</label>
-        <input type="tel" id="phoneNumber" name="PHONE NUMBER" required placeholder="e.g., 0234567890"><br>
+        <input type="tel" id="phoneNumber" required placeholder="e.g., 0234567890"><br>
 
         <label for="bundle">Select package:</label>
-        <select id="bundle" name="BUNDLE">
-            <option value="0">0GB - GHS0.0</option>
-            <option value="1">1GB - GHS4.50</option>
-            <option value="2">2GB - GHS9.0</option>
-            <option value="3">3GB - GHS14.0</option>
-            <option value="4">4GB - GHS19.0</option>
-            <option value="5">5GB - GHS24.0</option>
-            <option value="6">6GB - GHS29.0</option>
-            <option value="7">7GB - GHS34.0</option>
-            <option value="8">8GB - GHS39.0</option>
-            <option value="10">10GB - GHS47.50</option>
-            <option value="12">12GB - GHS60.0</option>
-            <option value="15">15GB - GHS70.0</option>
-            <option value="20">20GB - GHS90.0</option>
-            <option value="25">25GB - GHS115.0</option>
-            <option value="30">30GB - GHS129.0</option>
-            <option value="40">40GB - GHS179.0</option>
-            <option value="50">50GB - GHS198.0</option>
-            <option value="100">100GB - GHS355.0</option>
+        <select id="bundle">
+            <option value="0">SELECT HERE</option>
+            <option value="1">1GB - GHS5.00</option>
+            <option value="2">2GB - GHS10.00</option>
+            <option value="3">5GB - GHS15.00</option>
+            <option value="4">10GB - GHS20.00</option>
+            <option value="5">10GB - GHS25.00</option>
+            <option value="6">10GB - GHS29.00</option>
+            <option value="8">10GB - GHS39.50</option>
+            <option value="10">10GB - GHS48.00</option>
+            <option value="12">10GB - GHS59.00</option>
+            <option value="15">10GB - GHS72.00</option>
+            <option value="20">10GB - GHS93.00</option>
+            <option value="25">10GB - GHS117.00</option>
+            <option value="30">10GB - GHS132.00</option>
+            <option value="40">10GB - GHS182.00</option>
+            <option value="50">10GB - GHS199.00</option>
+            <option value="100">100GB - GHS358.50</option>
         </select><br>
         
         <input type="submit" value="Buy Here">
-        <img src="paystack-logo--removebg-preview.png" id="paystack-logo" alt="paystack">
+
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://js.paystack.co/v1/inline.js"></script>
         <script>
             const prices = {
-                "1": 490,
-                "2": 950,
-                "3": 1470,
-                "4": 1950,
-                "5": 2480,
-                "6": 3000,
-                "7": 3550,
-                "8": 4050,
+                "0": 0,
+                "1": 550, 
+                "2": 1050,
+                "3": 1550,
+                "4": 2050,
+                "5": 2550,
+                "6": 3040,
+                "8": 4000,
                 "10": 4850,
-                "12": 6050,
-                "15": 7050,
-                "20": 9050,
-                "25": 11600,
-                "30": 13000,
-                "40": 18000,
-                "50": 19900,
+                "12": 6000,
+                "15": 7250,
+                "20": 9350,
+                "25": 11750,
+                "30": 13250,
+                "40": 18250,
+                "50": 19950,
                 "100": 36000
             };
 
-    const agents = {
+            const agents = {
         "KSARFO": { email: "safooppong121@gmail.com", phone: "233545454000" },
         "CLIFTON14": { email: "cliftinaeva@gmail.com", phone: "233544469820" },
         "EWUSI WISDOM": { email: "ewusiw125@gmail.com", phone: "233558575831" },
@@ -206,146 +192,85 @@
         "JUSTICESARKO": { email: "amgposty915@gmail.com", phone: "233207158514"},
         "BERTA1": { email: "bertareigns@gmail.com", phone: "233543631870" },
         "ASAREEMMANUEL": { email: "asarerichway200@gmail.com", phone: "233546424321" }
-    };
+            };
 
-    document.getElementById("paymentForm").addEventListener("submit", function(event) {
-        event.preventDefault();
+            document.getElementById("paymentForm").addEventListener("submit", function(event) {
+                event.preventDefault();
 
-        const phoneNumber = document.getElementById("phoneNumber").value;
-        const agentId = document.getElementById("agentId").value.toUpperCase();
-        const selectedBundle = document.getElementById("bundle").value;
-        const amount = prices[selectedBundle]; // Amount in pesewas
+                const phoneNumber = document.getElementById("phoneNumber").value;
+                const agentId = document.getElementById("agentId").value.toUpperCase();
+                const selectedBundle = document.getElementById("bundle").value;
+                const amount = prices[selectedBundle];
 
-        if (!(agentId in agents)) {
-            Swal.fire('Error', 'Invalid or unregistered Agent ID.', 'error');
-            return;
-        }
+                if (!(agentId in agents)) {
+                    Swal.fire('Error', 'Invalid or unregistered Agent ID.', 'error');
+                    return;
+                }
 
-        const agentEmail = agents[agentId].email;
-        const agentPhone = agents[agentId].phone;
+                const agentEmail = agents[agentId].email;
+                const agentPhone = agents[agentId].phone;
 
-        const handler = PaystackPop.setup({
-            key: 'pk_live_fb405d2702a00868ba424f73b9148b7aad07b2b0', // Replace with your public key
-            email: agentEmail,
-            amount: amount,
-            currency: 'GHS',
-            ref: 'KYEKYEKU-' + Math.floor((Math.random() * 1000000000) + 1),
-            metadata: {
-                custom_fields: [{
-                    display_name: "Phone Number",
-                    variable_name: "phone_number",
-                    value: phoneNumber
-                }]
-            },
-            callback: function(response) {
-                const form = event.target;
-                const formData = new FormData(form);
-
-                fetch('https://api.sheetmonkey.io/form/gVtvizyoPvnMrcLim66aDc', {
-                    method: "POST",
-                    body: formData
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        return response.text().then(text => { throw new Error(text); });
+                const handler = PaystackPop.setup({
+                    key: 'pk_live_fb405d2702a00868ba424f73b9148b7aad07b2b0',
+                    email: agentEmail,
+                    amount: amount,
+                    currency: 'GHS',
+                    ref: 'KYEKYEKU-' + Math.floor((Math.random() * 1000000000) + 1),
+                    metadata: {
+                        custom_fields: [{
+                            display_name: "Phone Number",
+                            variable_name: "phone_number",
+                            value: phoneNumber
+                        }]
+                    },
+                    callback: function(response) {
+                        Swal.fire('Payment Successful!', 'Transaction Reference: ' + response.reference, 'success');
+                        sendSMS(agentPhone, selectedBundle);
+                    },
+                    onClose: function() {
+                        Swal.fire('Payment Cancelled', 'You closed the payment window.', 'info');
                     }
-                    return response.text();
-                })
-                .then(data => {
-                    Swal.fire('Success', 'Form submitted successfully', 'success');
-                    sendSMS(phoneNumber, selectedBundle); // Call the function to send SMS after successful payment
-                    sendAgentSMS(agentPhone, phoneNumber, selectedBundle); // Send SMS to the agent
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                    Swal.fire('Error', `There was an error with your submission: ${error.message}`, 'error');
                 });
-            },
-            onClose: function() {
-                Swal.fire('Payment Cancelled', 'You closed the payment window.', 'info');
-            }
-        });
 
-        handler.openIframe();
-    });
-
-    function sendSMS(phoneNumber, selectedBundle) {
-        const packageNames = {
-            "1": "1GB",
-            "2": "2GB",
-            "3": "3GB",
-            "4": "4GB",
-            "5": "5GB",
-            "6": "6GB",
-            "7": "7GB",
-            "8": "8GB",
-            "10": "10GB",
-            "12": "12GB",
-            "15": "15GB",
-            "20": "20GB",
-            "25": "25GB",
-            "30": "30GB",
-            "40": "40GB",
-            "50": "50GB",
-            "100": "100GB"
-        };
-
-        const package = packageNames[selectedBundle];
-        const apiUrl = `https://devp-sms03726-api.hubtel.com/v1/messages/send?clientid=janhcpit&clientsecret=mzrmyenb&from=KyekyekuTek&to=${phoneNumber}&content=${encodeURIComponent('Someone has just bought ' + package + ' with new phone number ' + phoneNumber + '. Kindly confirm.')}`;
-
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                console.log("SMS sent successfully:", data);
-            })
-            .catch(error => {
-                console.error("Error sending SMS:", error);
-                Swal.fire('Error', `There was an error sending the SMS: ${error.message}`, 'error');
+                handler.openIframe();
             });
-    }
 
-    function sendAgentSMS(agentPhone, phoneNumber, selectedBundle) {
-        const packageNames = {
-            "1": "1GB",
-            "2": "2GB",
-            "3": "3GB",
-            "4": "4GB",
-            "5": "5GB",
-            "6": "6GB",
-            "7": "7GB",
-            "8": "8GB",
-            "10": "10GB",
-            "12": "12GB",
-            "15": "15GB",
-            "20": "20GB",
-            "25": "25GB",
-            "30": "30GB",
-            "40": "40GB",
-            "50": "50GB",
-            "100": "100GB"
-        };
+            function sendSMS(agentPhone, selectedBundle) {
+                const packageNames = { 
+                    "1": "1GB",
+                    "2": "2GB",
+                    "3": "3GB",
+                    "4": "4GB",
+                    "5": "5GB",
+                    "6": "6GB",
+                    "8": "8GB",
+                    "10": "10GB",
+                    "12": "12GB",
+                    "15": "15GB",
+                    "20": "20GB",
+                    "25": "25GB",
+                    "30": "30GB",
+                    "40": "40GB",
+                    "50": "50GB" 
+                };
+                const package = packageNames[selectedBundle] || "Unknown Package";
+                const senderID = "KYE-TECH";
+                const apiKey = "zwNY4rjo1XWnMXn8Om7Q8gk1U";
+                const adminPhone = "233545454000";
 
-        const package = packageNames[selectedBundle];
-    const apiUrl = `https://apps.mnotify.net/smsapi?key=zwNY4rjo1XWnMXn8Om7Q8gk1U&to=${agentPhone}&msg=Your request to ${phoneNumber} has been on processing with ${package}&sender_id=KYE-TECH`;
+                const messages = {
+                    agent: `Hello, you have successfully purchased ${package} data bundle. Thank you for choosing Kyekyeku.Tech.`,
+                    admin: `New bundle purchase alert! ${agentPhone} just bought ${package}. Kindly confirm.`
+                };
 
-    fetch(apiUrl)
-        .then(response => {
-            if (!response.ok) {
-                return response.json().then(data => { 
-                    throw new Error(`SMS API Error: ${JSON.stringify(data)}`);
+                [agentPhone, adminPhone].forEach((phone, index) => {
+                    fetch(`https://apps.mnotify.net/smsapi?key=${apiKey}&to=${phone}&msg=${encodeURIComponent(Object.values(messages)[index])}&sender_id=${senderID}`)
+                        .then(response => response.json())
+                        .then(data => console.log("SMS Response:", data))
+                        .catch(error => console.error("Error sending SMS:", error));
                 });
             }
-            return response.json();
-        })
-        .then(data => {
-            console.log("Agent SMS sent successfully:", data);
-        })
-        .catch(error => {
-            console.error("Error sending Agent SMS:", error);
-            Swal.fire('Error', `There was an error sending the SMS to the agent: ${error.message}`, 'error');
-        });
-}
-</script>
+        </script>
     </form>
 </body>
 </html>

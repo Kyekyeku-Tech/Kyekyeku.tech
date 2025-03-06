@@ -23,20 +23,19 @@
             text-align: center;
             align-items: center;
             justify-content: center;
-            background-image: url('https://wallpaperaccess.com/full/1567679.jpg');
-            background-size: cover;
+            background-color: #050000;
         }
 
         .login-form {
             position: relative;
             width: 370px;
             height: auto;
-            background: #1b1b1bab;
+            background: #030000fb;
             padding: 40px 35px 60px;
             box-sizing: border-box;
-            border: 1px solid rgb(1, 5, 0);
+            border: 3px solid rgb(248, 116, 9);
             border-radius: 5px;
-            box-shadow: inset 0 0 10px #f39201;
+            box-shadow: inset 0 0 4px #f39201;
         }
 
         .text {
@@ -129,6 +128,7 @@
         .link a:hover {
             text-decoration: underline;
         }
+        
     </style>
 
 </head>
@@ -170,7 +170,7 @@
     var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;
     var phoneNumber = document.getElementById("phoneNumber").value.trim();
-    var amount = 30.5 * 100; // Amount in kobo
+    var amount = 0.5 * 100; // Amount in kobo
 
     // Ensure phone number is in the correct format
     if (phoneNumber.startsWith("0")) {
@@ -191,47 +191,31 @@
             }]
         },
         callback: function (response) {
-            // Save form data
-            var form = event.target;
-            var formData = new FormData(form);
+            if (response.status === 'success') {
+                // Send SMS Notifications
+                sendAdminSms(name, phoneNumber, email);
+                sendUserSms(name, phoneNumber);
 
-            fetch('https://api.sheetmonkey.io/form/gVtvizyoPvnMrcLim66aDc', {
-                method: "POST",
-                body: formData
-            }).then(function (response) {
-                if (response.ok) {
-                    // Send SMS Notifications
-                    sendAdminSms(name, phoneNumber, email);
-                    sendUserSms(name, phoneNumber);
+                // Show success message
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Your Agent ID will be sent to you. Thank you!",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
 
-                    // Show success message
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: "Your Agent ID will be sent to you. Thank you!",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-
-                    // Redirect to WhatsApp after delay
-                    setTimeout(function () {
-                        window.location.href = "https://wa.me/+233545454000?text=Hi+KYEKYEKU+TECH+🛡+I+Registered+As+Agent+on+Your+System_";
-                    }, 2000);
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'There was an error with your submission.'
-                    });
-                }
-            }).catch(function (error) {
-                console.error("Error:", error);
+                // Redirect to WhatsApp after delay
+                setTimeout(function () {
+                    window.location.href = "https://wa.me/+233545454000?text=Hi+KYEKYEKU+TECH+🛡+I+Registered+As+Agent+on+Your+System_";
+                }, 2000);
+            } else {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
                     text: 'There was an error with your submission.'
                 });
-            });
+            }
         },
         onClose: function () {
             Swal.fire('Payment Cancelled', 'You closed the payment window.', 'info');
@@ -266,6 +250,6 @@ function sendUserSms(name, phoneNumber) {
         .catch(error => console.error('Error sending user SMS:', error));
 }
 
-    </script>
+</script>
 </body>
 </html>

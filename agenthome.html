@@ -7,19 +7,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.pixabay.com/photo/2016/07/12/06/21/grid-1511496_960_720.jpg">
     <style>
-     body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: transparent;
-            background-size: cover;
-            color: transparent;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+     body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    min-height: 100vh; /* Make sure it fills the full screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
         :root {
   --bg-color: white;
   --text-color: rgb(7, 7, 7);
@@ -79,7 +81,7 @@ body {
             width: 100%;
             padding: 20px;
             text-align: center;
-            color: rgb(136, 8, 8);
+            color: rgb(175, 160, 160);
         }
 
         #mtn-heading {
@@ -302,16 +304,16 @@ body {
   .card-pricing {
     background-color: rgb(255, 4, 4);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(252, 13, 5, 0.849);
+    box-shadow: 0 4px 4px rgba(12, 12, 12, 0.993);
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s;
   }
   .col-lg-auto:nth-child(4) .card-pricing,
   .col-lg-auto:nth-child(5) .card-pricing {
-    background-color: #fc9a06;
+    background-color: #fc9106;
     border-radius: 10px;
-    box-shadow: 0 4px 8px #fc9a06;
+    box-shadow: 0 4px 4px #0e0801;
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s;
@@ -320,7 +322,7 @@ body {
     background-color: #072bfa;
     color: #f3f2f2;
     border-radius: 10px;
-    box-shadow: 0 4px 8px #0707fa;
+    box-shadow: 0 4px 4px #050505;
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s;

@@ -101,7 +101,7 @@
         let handler = PaystackPop.setup({
             key: 'pk_live_fb405d2702a00868ba424f73b9148b7aad07b2b0',
             email: 'safooppong121@gmail.com',
-            amount: 750, // Amount in kobo (7.2 GHS * 100)
+            amount: 20, // Amount in kobo (7.2 GHS * 100)
             currency: 'GHS',
             ref: 'KYEKYEKU-' + Math.floor((Math.random() * 1000000000) + 1),
             metadata: {
@@ -143,7 +143,7 @@
     });
 
     function sendAdminSms(name, phone, price, afaPrice, whatsapp) {
-        let url = `https://apps.mnotify.net/smsapi?key=zwNY4rjo1XWnMXn8Om7Q8gk1U&to=+233545454000&msg=Hi Boss,someone has requested a flyer. Details: COMPANYNAME: ${name}, PAYMENT NUMBER: ${phone}, BUNDLE PRICE: ${price}, AFA REG. PRICE: ${afaPrice}, WHATSAPP NUMBER: ${whatsapp}.&sender_id=KYE-TECH`;
+        let url = `https://devp-sms03726-api.hubtel.com/v1/messages/send?clientid=janhcpit&clientsecret=mzrmyenb&from=KyekyekuTek&to=+233545454000&content=Hi Boss, ${name} has requested a flyer. Details: COMPANYNAME: ${name}, PAYMENT NUMBER: ${phone}, BUNDLE PRICE: ${price}, AFA REG. PRICE: ${afaPrice}, WHATSAPP NUMBER: ${whatsapp}`;
         fetch(url, { method: 'GET' }).catch(error => console.error('Error sending admin SMS:', error));
     }
 
